@@ -5,6 +5,7 @@ module org.faketri.mpplayer {
     requires org.kordamp.bootstrapfx.core;
     requires java.desktop;
     requires mp3agic;
+    requires javafx.media;
 
     opens org.faketri.mpplayer to javafx.fxml;
     exports org.faketri.mpplayer;

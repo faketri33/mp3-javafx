@@ -17,16 +17,6 @@ import java.io.IOException;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        EventDispatcher eventDispatcher = new EventDispatcher();
-
-        PlayList<MyMp3Track> playList = new ArrayPlayList<>();
-        AudioPlayer<MyMp3Track> audioPlayer = new MyAudioPlayer<>(playList);
-        TrackStorage<MyMp3Track> trackStorage = new LocalTrackStorage<>(eventDispatcher);
-        TrackFactory trackFactory = new TrackFactory(trackStorage, audioPlayer, eventDispatcher);
-
-        trackFactory.getTrackStorage().add(new File("C:\\Users\\faket\\Downloads\\IOWA - Мальчик (zaycev.net).mp3"));
-        trackFactory.getAudioPlayer().getPlayList().getTracks().forEach(System.out::println);
-
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         stage.setTitle("Hello!");

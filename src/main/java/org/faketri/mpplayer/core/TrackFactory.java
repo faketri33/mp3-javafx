@@ -9,14 +9,14 @@ import org.faketri.mpplayer.model.TrackStorage;
 import java.util.Collection;
 
 public class TrackFactory {
-    private final TrackStorage<MyMp3Track> trackStorage;
-    private final AudioPlayer<MyMp3Track> audioPlayer;
     private final EventDispatcher eventDispatcher;
+    private final AudioPlayer<MyMp3Track> audioPlayer;
+    private final TrackStorage<MyMp3Track> trackStorage;
 
-    public TrackFactory(TrackStorage<MyMp3Track> trackStorage, AudioPlayer<MyMp3Track> audioPlayer, EventDispatcher eventDispatcher) {
-        this.trackStorage = trackStorage;
-        this.audioPlayer = audioPlayer;
-        this.eventDispatcher = eventDispatcher;
+    public TrackFactory() {
+        eventDispatcher = new EventDispatcher();
+        audioPlayer = new MyAudioPlayer<>(new ArrayPlayList<>());
+        trackStorage = new LocalTrackStorage<>(eventDispatcher);
 
         eventSubscribe();
     }
