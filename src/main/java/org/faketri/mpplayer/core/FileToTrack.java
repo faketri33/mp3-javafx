@@ -12,7 +12,7 @@ public class FileToTrack {
         MyMp3Track track = new MyMp3Track();
 
         track.setTitle(file.getName());
-        track.setPath(file.getAbsolutePath());
+        track.setPath(file.toURI().toString());
 
         return track;
     }

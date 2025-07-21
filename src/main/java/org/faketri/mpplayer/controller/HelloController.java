@@ -21,10 +21,9 @@ public class HelloController {
     @FXML
     public void initialize() {
         trackFactory.getTrackStorage().add(new File("C:\\Users\\faket\\Downloads\\IOWA - Мальчик (zaycev.net).mp3"));
-        trackFactory.getAudioPlayer().getPlayList().getTracks().forEach(System.out::println);
+        trackFactory.getTrackStorage().add(new File("C:\\Users\\faket\\Downloads\\Дмитрий Гревцев & Алексей Кракин - Танцуем В Стиле Девяностых (Original Mix).mp3"));
 
         ObservableList<MyMp3Track> observableTracks = FXCollections.observableArrayList(trackFactory.getAudioPlayer().getPlayList().getTracks());
-        System.out.println(observableTracks);
         trackList.setItems(FXCollections.observableArrayList(observableTracks));
 
         trackList.setCellFactory(listView -> new ListCell<>() {
@@ -38,12 +37,19 @@ public class HelloController {
                 }
             }
         });
+
+        trackList.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
+            if (newVal != null) {
+                trackFactory.getAudioPlayer().setCurrentTrack(newVal);
+            }
+        });
     }
 
     public void onPrevious(ActionEvent actionEvent) {
     }
 
     public void onPlayPause(ActionEvent actionEvent) {
+        trackFactory.getAudioPlayer().play();
     }
 
     public void onNext(ActionEvent actionEvent) {

@@ -6,6 +6,7 @@ import org.faketri.mpplayer.model.AudioPlayer;
 import org.faketri.mpplayer.model.PlayList;
 import org.faketri.mpplayer.model.Track;
 
+
 public class MyAudioPlayer<T extends Track> implements AudioPlayer<T> {
     private final PlayList<T> playList;
     private MediaPlayer mediaPlayer;
@@ -21,7 +22,7 @@ public class MyAudioPlayer<T extends Track> implements AudioPlayer<T> {
     }
 
     @Override
-    public void play(T track) {
+    public void play() {
         if (mediaPlayer != null)
             mediaPlayer.play();
     }
