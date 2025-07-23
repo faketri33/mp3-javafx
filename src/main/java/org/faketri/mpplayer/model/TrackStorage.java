@@ -5,6 +5,8 @@ import java.util.List;
 
 public interface TrackStorage<T extends Track> {
     void add(File file);
+
     void remove(File name);
+
     List<File> getTrackList();
 }

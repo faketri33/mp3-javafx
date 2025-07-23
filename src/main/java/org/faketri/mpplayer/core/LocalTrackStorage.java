@@ -53,7 +53,7 @@ public class LocalTrackStorage<T extends Track> implements TrackStorage<T> {
         for (File f : files) remove(f);
     }
 
-    private File[] getAllFilesMp3(File dir){
+    private File[] getAllFilesMp3(File dir) {
         return dir.listFiles(pathname -> pathname.getName().toLowerCase().endsWith(".mp3"));
     }
 

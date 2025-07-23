@@ -3,7 +3,6 @@ package org.faketri.mpplayer.core;
 import org.faketri.mpplayer.model.PlayList;
 import org.faketri.mpplayer.model.Track;
 
-
 import java.util.LinkedList;
 import java.util.List;
 
@@ -38,7 +37,7 @@ public class LinkedPlayList<T extends Track> implements PlayList<T> {
     @Override
     public T nextTrackFind(T current) {
         int currentIndex = getTracks().indexOf(current);
-        currentIndex = getTracks().size() -1 == currentIndex ? 0 : currentIndex + 1;
+        currentIndex = getTracks().size() - 1 == currentIndex ? 0 : currentIndex + 1;
         return getTracks().get(currentIndex);
     }
 

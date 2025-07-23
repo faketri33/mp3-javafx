@@ -1,3 +1,4 @@
 package org.faketri.mpplayer.events;
 
-public interface Event {}
+public interface Event {
+}

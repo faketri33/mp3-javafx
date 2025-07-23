@@ -1,12 +1,5 @@
 package org.faketri.mpplayer.controller;
 
-import javafx.beans.binding.Bindings;
-import javafx.beans.binding.StringBinding;
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ObservableStringValue;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -25,7 +18,8 @@ public class HelloController {
 
     @FXML
     private ListView<MyMp3Track> trackList;
-    @FXML private Label trackTitle;
+    @FXML
+    private Label trackTitle;
 
     @FXML
     public void initialize() {

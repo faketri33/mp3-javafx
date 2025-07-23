@@ -6,7 +6,7 @@ import org.faketri.mpplayer.model.MyMp3Track;
 import java.io.File;
 
 public class FileToTrack {
-    public static MyMp3Track format(File file){
+    public static MyMp3Track format(File file) {
         if (!file.isFile() | !file.exists())
             throw new TrackNotFound();
 

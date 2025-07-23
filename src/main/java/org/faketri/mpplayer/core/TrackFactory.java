@@ -43,10 +43,10 @@ public class TrackFactory {
 
         if (!newTracks.isEmpty())
             getAudioPlayer().getPlayList().add(newTracks);
-        
+
     }
 
-    private void eventSubscribe(){
+    private void eventSubscribe() {
         eventDispatcher.register(StorageUpdateEvent.class, event -> {
             updatePlayList();
         });

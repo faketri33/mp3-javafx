@@ -32,7 +32,7 @@ public class MyAudioPlayer<T extends Track> implements AudioPlayer<T> {
         if (currentTrack == null)
             throw new TrackNotFound();
 
-        if (isPause()){
+        if (isPause()) {
             mediaPlayer.play();
             return;
         }

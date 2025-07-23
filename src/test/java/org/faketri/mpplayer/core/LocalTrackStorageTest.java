@@ -4,7 +4,6 @@ import org.faketri.mpplayer.events.EventDispatcher;
 import org.faketri.mpplayer.model.Track;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
 import java.io.File;
 import java.io.IOException;
