@@ -1,9 +1,12 @@
 package org.faketri.mpplayer.model;
 
-import java.util.Collection;
+import java.util.List;
 
 public interface PlayList<T extends Track> {
-    Collection<T> getTracks();
+    List<T> getTracks();
     void add(T track);
-    void add(Collection<T> track);
+    void add(List<T> track);
+    void remove(T track);
+    T nextTrackFind(T current);
+    T previousTrackFind(T current);
 }

@@ -6,7 +6,7 @@ import org.faketri.mpplayer.model.AudioPlayer;
 import org.faketri.mpplayer.model.MyMp3Track;
 import org.faketri.mpplayer.model.TrackStorage;
 
-import java.util.Collection;
+import java.util.List;
 import java.util.Objects;
 
 public class TrackFactory {
@@ -16,7 +16,7 @@ public class TrackFactory {
 
     public TrackFactory() {
         eventDispatcher = new EventDispatcher();
-        audioPlayer = new MyAudioPlayer<>(new ArrayPlayList<>());
+        audioPlayer = new MyAudioPlayer<>(new LinkedPlayList<>());
         trackStorage = new LocalTrackStorage<>(eventDispatcher);
 
         eventSubscribe();
@@ -31,9 +31,9 @@ public class TrackFactory {
     }
 
     private void updatePlayList() {
-        Collection<MyMp3Track> existingTracks = getAudioPlayer().getPlayList().getTracks();
+        List<MyMp3Track> existingTracks = getAudioPlayer().getPlayList().getTracks();
 
-        Collection<MyMp3Track> newTracks = getTrackStorage()
+        List<MyMp3Track> newTracks = getTrackStorage()
                 .getTrackList()
                 .stream()
                 .map(FileToTrack::format)

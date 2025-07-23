@@ -1,7 +1,6 @@
 package org.faketri.mpplayer.core;
 
 import org.faketri.mpplayer.events.EventDispatcher;
-import org.faketri.mpplayer.events.EventListener;
 import org.faketri.mpplayer.events.StorageUpdateEvent;
 import org.faketri.mpplayer.model.Track;
 import org.faketri.mpplayer.model.TrackStorage;
@@ -23,11 +22,10 @@ public class LocalTrackStorage<T extends Track> implements TrackStorage<T> {
 
     @Override
     public void add(File file) {
-        if (file == null)
+        if (file == null || !file.exists())
             return;
 
         eventDispatcher.post(new StorageUpdateEvent());
-
 
         if (file.isFile()) {
             trackList.add(file);
@@ -53,7 +51,6 @@ public class LocalTrackStorage<T extends Track> implements TrackStorage<T> {
         dirList.remove(name);
         File[] files = getAllFilesMp3(name);
         for (File f : files) remove(f);
-
     }
 
     private File[] getAllFilesMp3(File dir){

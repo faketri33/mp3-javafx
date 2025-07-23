@@ -1,13 +1,14 @@
 package org.faketri.mpplayer.core;
 
+import org.faketri.mpplayer.exception.TrackNotFound;
 import org.faketri.mpplayer.model.MyMp3Track;
 
 import java.io.File;
 
 public class FileToTrack {
     public static MyMp3Track format(File file){
-        if (!file.isFile())
-            return null;
+        if (!file.isFile() | !file.exists())
+            throw new TrackNotFound();
 
         MyMp3Track track = new MyMp3Track();
 
